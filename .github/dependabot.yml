@@ -9,13 +9,13 @@ updates:
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 10
     groups:
-      dependencies:
+      patch-updates:
         patterns:
           - "*"
         update-types:
-          - "minor"
           - "patch"
     ignore:
       - dependency-name: "*"
         update-types:
           - "version-update:semver-major"
+          - "version-update:semver-minor"
