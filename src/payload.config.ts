@@ -12,6 +12,9 @@ import { ja } from '@payloadcms/translations/languages/ja'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Products } from './collections/Products'
+import { ProductShowcases } from './collections/ProductShowcases'
+import { News } from './collections/News'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -56,7 +59,7 @@ export default buildConfig({
     supportedLanguages: { ja },
     fallbackLanguage: 'ja',
   },
-  collections: [Users, Media],
+  collections: [Users, Media, Products, ProductShowcases, News],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
