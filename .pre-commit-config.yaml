@@ -1,0 +1,41 @@
+ci:
+  autofix_commit_msg: "style: pre-commit.ci自動修正"
+  autoupdate_commit_msg: "ci: pre-commit フック更新"
+  skip:
+    - lint
+    - test:int
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-json
+        exclude: ^(tsconfig\.json|.*\.jsonc)$
+      - id: check-merge-conflict
+      - id: check-added-large-files
+
+  - repo: local
+    hooks:
+      - id: format
+        name: prettier format
+        entry: pnpm format
+        language: system
+        pass_filenames: false
+        types_or: [javascript, jsx, ts, tsx, json, yaml, markdown, css]
+
+      - id: lint
+        name: next lint
+        entry: pnpm lint
+        language: system
+        pass_filenames: false
+        files: \.(ts|tsx|js|jsx|mjs|cjs)$
+
+      - id: test:int
+        name: vitest
+        entry: pnpm test:int
+        language: system
+        pass_filenames: false
+        files: \.(ts|tsx|js|jsx|mjs|cjs)$
