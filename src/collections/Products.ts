@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { publishedOnly } from './access/publishedOnly'
 import { publishControlFields } from './fields/publishControl'
 
 export const Products: CollectionConfig = {
@@ -13,7 +14,7 @@ export const Products: CollectionConfig = {
     defaultColumns: ['name', 'sku', 'price', 'status', 'publishStartAt', 'publishEndAt'],
   },
   access: {
-    read: () => true,
+    read: publishedOnly,
   },
   fields: [
     {

@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { publishedOnly } from './access/publishedOnly'
 import { publishControlFields } from './fields/publishControl'
 
 export const News: CollectionConfig = {
@@ -19,7 +20,7 @@ export const News: CollectionConfig = {
     },
   },
   access: {
-    read: () => true,
+    read: publishedOnly,
   },
   fields: [
     {
