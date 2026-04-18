@@ -8,6 +8,8 @@ import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare'
 import { GetPlatformProxyOptions } from 'wrangler'
 import { r2Storage } from '@payloadcms/storage-r2'
 
+import { ja } from '@payloadcms/translations/languages/ja'
+
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 
@@ -49,6 +51,10 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+  },
+  i18n: {
+    supportedLanguages: { ja },
+    fallbackLanguage: 'ja',
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
