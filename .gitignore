@@ -52,3 +52,8 @@ node_modules/
 # OpenNext
 .open-next
 .wrangler
+
+# Claude Code skills (ローカル専用)
+/.agents/
+/.claude/
+/skills-lock.json
