@@ -54,6 +54,13 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      breakpoints: [
+        { label: 'モバイル', name: 'mobile', width: 375, height: 667 },
+        { label: 'タブレット', name: 'tablet', width: 768, height: 1024 },
+        { label: 'デスクトップ', name: 'desktop', width: 1440, height: 900 },
+      ],
+    },
   },
   i18n: {
     supportedLanguages: { ja },

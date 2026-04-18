@@ -9,6 +9,12 @@ export const News: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'publishedAt', 'status', 'updatedAt'],
+    livePreview: {
+      url: ({ data }) => {
+        const base = process.env.NEXT_PUBLIC_SERVER_URL ?? 'http://localhost:3000'
+        return `${base}/news/${data?.slug ?? ''}?preview=true`
+      },
+    },
   },
   access: {
     read: () => true,
