@@ -439,6 +439,20 @@
           "autoincrement": false,
           "default": "'draft'"
         },
+        "publish_start_at": {
+          "name": "publish_start_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "publish_end_at": {
+          "name": "publish_end_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
         "short_description": {
           "name": "short_description",
           "type": "text",
@@ -484,6 +498,27 @@
             "sku"
           ],
           "isUnique": true
+        },
+        "products_status_idx": {
+          "name": "products_status_idx",
+          "columns": [
+            "status"
+          ],
+          "isUnique": false
+        },
+        "products_publish_start_at_idx": {
+          "name": "products_publish_start_at_idx",
+          "columns": [
+            "publish_start_at"
+          ],
+          "isUnique": false
+        },
+        "products_publish_end_at_idx": {
+          "name": "products_publish_end_at_idx",
+          "columns": [
+            "publish_end_at"
+          ],
+          "isUnique": false
         },
         "products_featured_image_idx": {
           "name": "products_featured_image_idx",
@@ -578,13 +613,6 @@
           "notNull": false,
           "autoincrement": false
         },
-        "published_at": {
-          "name": "published_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
-        },
         "status": {
           "name": "status",
           "type": "text",
@@ -592,6 +620,20 @@
           "notNull": true,
           "autoincrement": false,
           "default": "'draft'"
+        },
+        "publish_start_at": {
+          "name": "publish_start_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "publish_end_at": {
+          "name": "publish_end_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         },
         "updated_at": {
           "name": "updated_at",
@@ -629,6 +671,27 @@
           "name": "product_showcases_hero_image_idx",
           "columns": [
             "hero_image_id"
+          ],
+          "isUnique": false
+        },
+        "product_showcases_status_idx": {
+          "name": "product_showcases_status_idx",
+          "columns": [
+            "status"
+          ],
+          "isUnique": false
+        },
+        "product_showcases_publish_start_at_idx": {
+          "name": "product_showcases_publish_start_at_idx",
+          "columns": [
+            "publish_start_at"
+          ],
+          "isUnique": false
+        },
+        "product_showcases_publish_end_at_idx": {
+          "name": "product_showcases_publish_end_at_idx",
+          "columns": [
+            "publish_end_at"
           ],
           "isUnique": false
         },
@@ -732,13 +795,6 @@
           "notNull": true,
           "autoincrement": false
         },
-        "published_at": {
-          "name": "published_at",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": true,
-          "autoincrement": false
-        },
         "status": {
           "name": "status",
           "type": "text",
@@ -746,6 +802,20 @@
           "notNull": true,
           "autoincrement": false,
           "default": "'draft'"
+        },
+        "publish_start_at": {
+          "name": "publish_start_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "publish_end_at": {
+          "name": "publish_end_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
         },
         "updated_at": {
           "name": "updated_at",
@@ -776,6 +846,27 @@
           "name": "news_thumbnail_idx",
           "columns": [
             "thumbnail_id"
+          ],
+          "isUnique": false
+        },
+        "news_status_idx": {
+          "name": "news_status_idx",
+          "columns": [
+            "status"
+          ],
+          "isUnique": false
+        },
+        "news_publish_start_at_idx": {
+          "name": "news_publish_start_at_idx",
+          "columns": [
+            "publish_start_at"
+          ],
+          "isUnique": false
+        },
+        "news_publish_end_at_idx": {
+          "name": "news_publish_end_at_idx",
+          "columns": [
+            "publish_end_at"
           ],
           "isUnique": false
         },
@@ -1365,6 +1456,6 @@
   "internal": {
     "indexes": {}
   },
-  "id": "5be2f133-866b-43d3-921a-8676d3d26ffd",
+  "id": "3c5eecf8-57fa-41fc-ae98-327fa25bf335",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }

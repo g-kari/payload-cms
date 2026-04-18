@@ -22,7 +22,7 @@ export const LivePreviewClient: React.FC<Props> = ({ initialData, serverURL }) =
       <header>
         <p style={{ color: '#888', fontSize: 14 }}>
           {data.category} ・{' '}
-          {data.publishedAt ? new Date(data.publishedAt).toLocaleString('ja-JP') : '—'}
+          {data.publishStartAt ? new Date(data.publishStartAt).toLocaleString('ja-JP') : '—'}
         </p>
         <h1>{data.title}</h1>
         {data.excerpt && <p style={{ color: '#555' }}>{data.excerpt}</p>}

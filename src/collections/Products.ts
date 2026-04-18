@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { publishControlFields } from './fields/publishControl'
+
 export const Products: CollectionConfig = {
   slug: 'products',
   labels: {
@@ -8,7 +10,7 @@ export const Products: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'name',
-    defaultColumns: ['name', 'sku', 'price', 'status', 'updatedAt'],
+    defaultColumns: ['name', 'sku', 'price', 'status', 'publishStartAt', 'publishEndAt'],
   },
   access: {
     read: () => true,
@@ -56,18 +58,7 @@ export const Products: CollectionConfig = {
         { label: 'その他', value: 'other' },
       ],
     },
-    {
-      name: 'status',
-      label: '公開ステータス',
-      type: 'select',
-      required: true,
-      defaultValue: 'draft',
-      options: [
-        { label: '下書き', value: 'draft' },
-        { label: '公開中', value: 'published' },
-        { label: 'アーカイブ', value: 'archived' },
-      ],
-    },
+    ...publishControlFields,
     {
       name: 'shortDescription',
       label: '短い説明',

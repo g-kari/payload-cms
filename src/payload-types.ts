@@ -180,6 +180,14 @@ export interface Product {
   price: number;
   category?: ('apparel' | 'goods' | 'food' | 'other') | null;
   status: 'draft' | 'published' | 'archived';
+  /**
+   * 未設定の場合は即時公開扱い
+   */
+  publishStartAt?: string | null;
+  /**
+   * 未設定の場合は終了日なし
+   */
+  publishEndAt?: string | null;
   shortDescription?: string | null;
   featuredImage?: (number | null) | Media;
   gallery?:
@@ -218,8 +226,15 @@ export interface ProductShowcase {
     };
     [k: string]: unknown;
   } | null;
-  publishedAt?: string | null;
-  status: 'draft' | 'published';
+  status: 'draft' | 'published' | 'archived';
+  /**
+   * 未設定の場合は即時公開扱い
+   */
+  publishStartAt?: string | null;
+  /**
+   * 未設定の場合は終了日なし
+   */
+  publishEndAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -252,8 +267,15 @@ export interface News {
     };
     [k: string]: unknown;
   };
-  publishedAt: string;
-  status: 'draft' | 'published';
+  status: 'draft' | 'published' | 'archived';
+  /**
+   * 未設定の場合は即時公開扱い
+   */
+  publishStartAt?: string | null;
+  /**
+   * 未設定の場合は終了日なし
+   */
+  publishEndAt?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -392,6 +414,8 @@ export interface ProductsSelect<T extends boolean = true> {
   price?: T;
   category?: T;
   status?: T;
+  publishStartAt?: T;
+  publishEndAt?: T;
   shortDescription?: T;
   featuredImage?: T;
   gallery?:
@@ -415,8 +439,9 @@ export interface ProductShowcasesSelect<T extends boolean = true> {
   heroImage?: T;
   lead?: T;
   content?: T;
-  publishedAt?: T;
   status?: T;
+  publishStartAt?: T;
+  publishEndAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -431,8 +456,9 @@ export interface NewsSelect<T extends boolean = true> {
   thumbnail?: T;
   excerpt?: T;
   content?: T;
-  publishedAt?: T;
   status?: T;
+  publishStartAt?: T;
+  publishEndAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }

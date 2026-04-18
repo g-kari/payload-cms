@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { publishControlFields } from './fields/publishControl'
+
 export const News: CollectionConfig = {
   slug: 'news',
   labels: {
@@ -8,7 +10,7 @@ export const News: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'category', 'publishedAt', 'status', 'updatedAt'],
+    defaultColumns: ['title', 'category', 'status', 'publishStartAt', 'publishEndAt'],
     livePreview: {
       url: ({ data }) => {
         const base = process.env.NEXT_PUBLIC_SERVER_URL ?? 'http://localhost:3000'
@@ -67,27 +69,6 @@ export const News: CollectionConfig = {
       type: 'richText',
       required: true,
     },
-    {
-      name: 'publishedAt',
-      label: '公開日時',
-      type: 'date',
-      required: true,
-      admin: {
-        date: {
-          pickerAppearance: 'dayAndTime',
-        },
-      },
-    },
-    {
-      name: 'status',
-      label: '公開ステータス',
-      type: 'select',
-      required: true,
-      defaultValue: 'draft',
-      options: [
-        { label: '下書き', value: 'draft' },
-        { label: '公開中', value: 'published' },
-      ],
-    },
+    ...publishControlFields,
   ],
 }

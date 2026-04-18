@@ -22,6 +22,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	\`price\` numeric NOT NULL,
   	\`category\` text,
   	\`status\` text DEFAULT 'draft' NOT NULL,
+  	\`publish_start_at\` text,
+  	\`publish_end_at\` text,
   	\`short_description\` text,
   	\`featured_image_id\` integer,
   	\`updated_at\` text DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')) NOT NULL,
@@ -31,6 +33,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   `)
   await db.run(sql`CREATE UNIQUE INDEX \`products_slug_idx\` ON \`products\` (\`slug\`);`)
   await db.run(sql`CREATE UNIQUE INDEX \`products_sku_idx\` ON \`products\` (\`sku\`);`)
+  await db.run(sql`CREATE INDEX \`products_status_idx\` ON \`products\` (\`status\`);`)
+  await db.run(sql`CREATE INDEX \`products_publish_start_at_idx\` ON \`products\` (\`publish_start_at\`);`)
+  await db.run(sql`CREATE INDEX \`products_publish_end_at_idx\` ON \`products\` (\`publish_end_at\`);`)
   await db.run(sql`CREATE INDEX \`products_featured_image_idx\` ON \`products\` (\`featured_image_id\`);`)
   await db.run(sql`CREATE INDEX \`products_updated_at_idx\` ON \`products\` (\`updated_at\`);`)
   await db.run(sql`CREATE INDEX \`products_created_at_idx\` ON \`products\` (\`created_at\`);`)
@@ -42,8 +47,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	\`hero_image_id\` integer,
   	\`lead\` text,
   	\`content\` text,
-  	\`published_at\` text,
   	\`status\` text DEFAULT 'draft' NOT NULL,
+  	\`publish_start_at\` text,
+  	\`publish_end_at\` text,
   	\`updated_at\` text DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')) NOT NULL,
   	\`created_at\` text DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')) NOT NULL,
   	FOREIGN KEY (\`product_id\`) REFERENCES \`products\`(\`id\`) ON UPDATE no action ON DELETE set null,
@@ -53,6 +59,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.run(sql`CREATE UNIQUE INDEX \`product_showcases_slug_idx\` ON \`product_showcases\` (\`slug\`);`)
   await db.run(sql`CREATE INDEX \`product_showcases_product_idx\` ON \`product_showcases\` (\`product_id\`);`)
   await db.run(sql`CREATE INDEX \`product_showcases_hero_image_idx\` ON \`product_showcases\` (\`hero_image_id\`);`)
+  await db.run(sql`CREATE INDEX \`product_showcases_status_idx\` ON \`product_showcases\` (\`status\`);`)
+  await db.run(sql`CREATE INDEX \`product_showcases_publish_start_at_idx\` ON \`product_showcases\` (\`publish_start_at\`);`)
+  await db.run(sql`CREATE INDEX \`product_showcases_publish_end_at_idx\` ON \`product_showcases\` (\`publish_end_at\`);`)
   await db.run(sql`CREATE INDEX \`product_showcases_updated_at_idx\` ON \`product_showcases\` (\`updated_at\`);`)
   await db.run(sql`CREATE INDEX \`product_showcases_created_at_idx\` ON \`product_showcases\` (\`created_at\`);`)
   await db.run(sql`CREATE TABLE \`news\` (
@@ -63,8 +72,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	\`thumbnail_id\` integer,
   	\`excerpt\` text,
   	\`content\` text NOT NULL,
-  	\`published_at\` text NOT NULL,
   	\`status\` text DEFAULT 'draft' NOT NULL,
+  	\`publish_start_at\` text,
+  	\`publish_end_at\` text,
   	\`updated_at\` text DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')) NOT NULL,
   	\`created_at\` text DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')) NOT NULL,
   	FOREIGN KEY (\`thumbnail_id\`) REFERENCES \`media\`(\`id\`) ON UPDATE no action ON DELETE set null
@@ -72,6 +82,9 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   `)
   await db.run(sql`CREATE UNIQUE INDEX \`news_slug_idx\` ON \`news\` (\`slug\`);`)
   await db.run(sql`CREATE INDEX \`news_thumbnail_idx\` ON \`news\` (\`thumbnail_id\`);`)
+  await db.run(sql`CREATE INDEX \`news_status_idx\` ON \`news\` (\`status\`);`)
+  await db.run(sql`CREATE INDEX \`news_publish_start_at_idx\` ON \`news\` (\`publish_start_at\`);`)
+  await db.run(sql`CREATE INDEX \`news_publish_end_at_idx\` ON \`news\` (\`publish_end_at\`);`)
   await db.run(sql`CREATE INDEX \`news_updated_at_idx\` ON \`news\` (\`updated_at\`);`)
   await db.run(sql`CREATE INDEX \`news_created_at_idx\` ON \`news\` (\`created_at\`);`)
   await db.run(sql`CREATE TABLE \`payload_kv\` (
