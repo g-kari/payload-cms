@@ -14,8 +14,8 @@ updates:
           - "*"
         update-types:
           - "patch"
-    ignore:
-      - dependency-name: "*"
+      minor-updates:
+        patterns:
+          - "*"
         update-types:
-          - "version-update:semver-major"
-          - "version-update:semver-minor"
+          - "minor"
