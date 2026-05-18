@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@opennextjs/cloudflare':
-        specifier: ^1.11.0
+        specifier: ^1.19.1
         version: 1.19.1(next@15.5.18(@babel/core@7.29.0)(@playwright/test@1.58.2)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(sass@1.77.4))(wrangler@4.61.1)
       '@payloadcms/db-d1-sqlite':
         specifier: 3.82.1
@@ -39,7 +39,7 @@ importers:
         specifier: 16.4.7
         version: 16.4.7
       graphql:
-        specifier: ^16.8.1
+        specifier: ^16.13.2
         version: 16.13.2
       next:
         specifier: 15.5.18
@@ -55,7 +55,7 @@ importers:
         version: 19.2.5(react@19.2.5)
     devDependencies:
       '@eslint/eslintrc':
-        specifier: ^3.2.0
+        specifier: ^3.3.5
         version: 3.3.5
       '@playwright/test':
         specifier: 1.58.2
@@ -76,7 +76,7 @@ importers:
         specifier: 4.5.2
         version: 4.5.2(vite@7.3.2(@types/node@22.19.17)(sass@1.77.4)(terser@5.16.9)(tsx@4.21.0)(yaml@2.8.3))
       eslint:
-        specifier: ^9.16.0
+        specifier: ^9.39.4
         version: 9.39.4
       eslint-config-next:
         specifier: 15.4.11
@@ -85,7 +85,7 @@ importers:
         specifier: 28.0.0
         version: 28.0.0(@noble/hashes@1.8.0)
       prettier:
-        specifier: ^3.4.2
+        specifier: ^3.8.3
         version: 3.8.3
       tsx:
         specifier: 4.21.0
@@ -2818,8 +2818,8 @@ packages:
   brace-expansion@2.1.0:
     resolution: {integrity: sha512-TN1kCZAgdgweJhWWpgKYrQaMNHcDULHkWwQIspdtjV4Y5aurRdZpjAqn6yX3FPqTA9ngHCc4hJxMAMgGfve85w==}
 
-  brace-expansion@5.0.5:
-    resolution: {integrity: sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==}
+  brace-expansion@5.0.6:
+    resolution: {integrity: sha512-kLpxurY4Z4r9sgMsyG0Z9uzsBlgiU/EFKhj/h91/8yHu0edo7XuixOIH3VcJ8kkxs6/jPzoI6U9Vj3WqbMQ94g==}
     engines: {node: 18 || 20 || >=22}
 
   braces@3.0.3:
@@ -8683,7 +8683,7 @@ snapshots:
     dependencies:
       balanced-match: 1.0.2
 
-  brace-expansion@5.0.5:
+  brace-expansion@5.0.6:
     dependencies:
       balanced-match: 4.0.4
 
@@ -10480,7 +10480,7 @@ snapshots:
 
   minimatch@10.2.5:
     dependencies:
-      brace-expansion: 5.0.5
+      brace-expansion: 5.0.6
 
   minimatch@3.1.5:
     dependencies:
