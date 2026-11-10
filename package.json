@@ -57,7 +57,7 @@
     "prettier": "^3.4.2",
     "tsx": "4.23.15",
     "typescript": "5.9.3",
-    "vite-tsconfig-paths": "6.0.5",
+    "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.12",
     "wrangler": "~4.61.1"
   },
