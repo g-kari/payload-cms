@@ -36,7 +36,7 @@
     "@payloadcms/translations": "3.82.1",
     "@payloadcms/ui": "3.82.1",
     "cross-env": "^7.0.3",
-    "dotenv": "16.4.7",
+    "dotenv": "16.6.1",
     "graphql": "^16.8.1",
     "next": "15.5.28",
     "payload": "3.90.0",
