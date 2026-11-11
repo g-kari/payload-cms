@@ -35,7 +35,7 @@
     "@payloadcms/storage-r2": "3.93.0",
     "@payloadcms/translations": "3.93.0",
     "@payloadcms/ui": "3.93.0",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "dotenv": "16.6.1",
     "graphql": "^16.8.1",
     "next": "15.5.29",
